@@ -141,4 +141,6 @@ function draw() {
 }
 function draw2() {
     var canvas = $('#canvas2')[0]
+    var ctx = canvas.getContext('2d')
+    // 注意：宽度防止色调半渲染
 }
