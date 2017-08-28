@@ -150,7 +150,7 @@ window.onload = function () {
             // 注意：线宽防止色调半渲染，线帽与端点连接
             // 使用虚线
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.setLineDash([4, 20]);
+            ctx.setLineDash([5, 20]);
             ctx.lineDashOffset = offset;
             ctx.strokeRect(10, 10, 100, 100);
         }
@@ -188,11 +188,29 @@ window.onload = function () {
             ctx.fillRect(0, 0, 150, 150);
             // 图案样式
             var img = new Image();
-            img.src = '../imgs/tu.jpg'
+            img.src = '../imgs/tu.jpg';
+            console.log(1)
+            img.onload = function () {
+                console.log(2)
+                // 创建图案
+                var ptrn = ctx.createPattern(img, 'repeat');
+                ctx.fillStyle = ptrn;
+                ctx.fillRect(200, 200, 150, 150);
+            }
+            console.log(3)
+
+            // 阴影
+            ctx.shadowOffsetX = 5;
+            ctx.shadowOffsetY = 5;
+            ctx.shadowBlur = 2;
+            ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+            ctx.font = "20px Times New Roman";
+            ctx.fillStyle = "Black";
+            ctx.fillText("Sample String", 5, 300);
         }
         draw3()
     }
-    
+
 
 
 
